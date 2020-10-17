@@ -2,7 +2,7 @@
 
 buildscript {
     repositories {
-        maven { url "http://222.249.228.145:8081/repository/maven-public/" }
+        maven { url "http://121.36.7.59:8081/repository/maven-public/" }
         google()
         jcenter()
     }
@@ -16,7 +16,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url "http://222.249.228.145:8081/repository/maven-public/" }
+        maven { url "http://121.36.7.59:8081/repository/maven-public/" }
         google()
         maven {url "https://maven.google.com" }
         jcenter()

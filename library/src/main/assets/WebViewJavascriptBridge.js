@@ -179,9 +179,8 @@
         console.log(messageJSON);
         if (receiveMessageQueue) {
             receiveMessageQueue.push(messageJSON);
-        } else {
-            _dispatchMessageFromNative(messageJSON);
         }
+        _dispatchMessageFromNative(messageJSON);
     }
 
     var WebViewJavascriptBridge = window.WebViewJavascriptBridge = {
