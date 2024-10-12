@@ -5,6 +5,9 @@
     if (window.WebViewJavascriptBridge) {
         return;
     }
+    if (!document.documentElement) {
+        return;
+    }
 
     var messagingIframe;
     var sendMessageQueue = [];

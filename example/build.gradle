@@ -27,6 +27,6 @@ dependencies {
     api project(':library')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.code.gson:gson:2.8.5'
-    api 'cn.wanxue.android:x5webview:1.0.0@aar'
+    api 'com.tencent.tbs:tbssdk:44286'
     api 'com.alibaba:fastjson:1.1.71.android'
 }

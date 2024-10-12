@@ -21,7 +21,7 @@ android {
 }
 
 dependencies {
-    compileOnly 'cn.wanxue.android:x5webview:1.0.0@aar'
+    compileOnly 'com.tencent.tbs:tbssdk:44286'
 }
 
 /*task makeJar(type: Copy) {
