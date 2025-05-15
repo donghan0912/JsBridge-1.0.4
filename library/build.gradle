@@ -4,7 +4,6 @@ plugins {
 }
 
 version = "1.0.14"
-group = "com.test"
 
 android {
     namespace "com.github.lzyzsd.library"
@@ -31,18 +30,10 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            maven(MavenPublication) {
-                groupId = group
-                artifactId = "jsbridge"
-                version = version
+            release(MavenPublication) {
+                artifactId = 'jsbridge'
 
-                def aarTask = tasks.named("bundleReleaseAar")
-                def aarFile = aarTask.get().archiveFile.get().asFile
-
-                artifact(aarFile) {
-                    extension 'aar'
-                    builtBy aarTask  // ✅ 关键：声明依赖于 AAR 生成任务
-                }
+                from components.findByName("release")
             }
         }
 
@@ -51,6 +42,8 @@ afterEvaluate {
         }
     }
 }
+
+
 
 
 
