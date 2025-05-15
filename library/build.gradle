@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = "1.0.1"
+version = "1.0.2"
 group = "com.test"
 
 android {
@@ -39,7 +39,7 @@ dependencies {
 makeJar.dependsOn(build)*/
 
 
-def zipFile = file('build/intermediates/packaged-classes/release/classes.jar')
+/*def zipFile = file('build/intermediates/packaged-classes/release/classes.jar')
 task makeJar(type: Jar) {
     archiveName = 'JsBridge.jar'
     //如果之前存在，则先删除
@@ -48,7 +48,7 @@ task makeJar(type: Jar) {
     from zipTree(zipFile)
     from fileTree(dir: 'src/main', includes: ['assets/**'])
 }
-makeJar.dependsOn(build)
+makeJar.dependsOn(build)*/
 
 
 
