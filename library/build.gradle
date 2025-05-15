@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = "1.0.14"
+version = "1.0.17"
 
 android {
     namespace "com.github.lzyzsd.library"
@@ -27,14 +27,22 @@ dependencies {
     compileOnly 'com.tencent.tbs:tbssdk:44286'
 }
 
-publishing {
-    publications {
-        release(MavenPublication) {
-            artifactId = 'jsbridge'
-            from components.findByName("release")
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                artifactId = "jsbridge"
+                def aarTask = tasks.named("bundleReleaseAar")
+                artifact(aarTask.get().archiveFile) {
+                    builtBy aarTask
+                    extension "aar"
+                }
+            }
         }
     }
 }
+
+
 
 
 
