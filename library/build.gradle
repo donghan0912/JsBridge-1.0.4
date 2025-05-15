@@ -27,21 +27,15 @@ dependencies {
     compileOnly 'com.tencent.tbs:tbssdk:44286'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                artifactId = 'jsbridge'
-
-                from components.findByName("release")
-            }
-        }
-
-        repositories {
-            mavenLocal()
+publishing {
+    publications {
+        release(MavenPublication) {
+            artifactId = 'jsbridge'
+            from components.findByName("release")
         }
     }
 }
+
 
 
 
