@@ -7,7 +7,7 @@ version = "1.0.4"
 group = "com.test"
 
 android {
-    compileSdkVersion 35
+    compileSdkVersion 31
 //    buildToolsVersion "21.1.2"
 
     defaultConfig {
