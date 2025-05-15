@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = "1.0.13"
+version = "1.0.14"
 group = "com.test"
 
 android {
@@ -31,16 +31,17 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            // 改名为 maven 发布项，不使用 components.release
             maven(MavenPublication) {
                 groupId = group
                 artifactId = "jsbridge"
                 version = version
 
-                // 手动添加 AAR 文件和 pom
-                def aarFile = file("$buildDir/outputs/aar/${project.name}-release.aar")
+                def aarTask = tasks.named("bundleReleaseAar")
+                def aarFile = aarTask.get().archiveFile.get().asFile
+
                 artifact(aarFile) {
                     extension 'aar'
+                    builtBy aarTask  // ✅ 关键：声明依赖于 AAR 生成任务
                 }
             }
         }
@@ -50,6 +51,7 @@ afterEvaluate {
         }
     }
 }
+
 
 
 
