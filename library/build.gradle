@@ -3,16 +3,16 @@ plugins {
     id 'maven-publish'
 }
 
-version = "1.0.3"
+version = "1.0.4"
 group = "com.test"
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 35
 //    buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 1
         versionName version
     }
@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
     }
 }
 
